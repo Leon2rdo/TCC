@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+    --main-color: #0099ff;
+    --black: #f5f4f4;
+    --bg: #ffffff;
+    --header-color: #2258cc;
+    --text-color: #000000;
+    --conf-pedido: #28a745;
+    --conf-pedido-h: #218838;
+}
+
+/* Estilos Gerais */
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+    border: none;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Espalha os itens horizontalmente */
+    align-items: center; /* Alinha verticalmente ao centro */
+}
+
+header a {
+    color: var(--bg);
+    margin-right: auto; /* Garante que o link fique na esquerda */
+    font-size: 22px;
+}
+
+header h1 {
+    flex-grow: 1; /* Faz com que o h1 ocupe todo o espaço restante */
+    color: var(--bg);
+    text-align: center; /* Centraliza o texto dentro do h1 */
+    margin: 0; /* Remove qualquer margem padrão */
+    padding: 1rem 0;
+    font-size: 30px;
+    margin-right: 14vh;
+}
+
+header a:hover{
+    color:var(--header-color);
+    border-bottom: .1rem solid var(--header-color);
+    padding-bottom: .5rem;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: var(--bg);
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+h1{
+    color: var(--bg);
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 20px;
+}
+
+/* Seção de Produtos */
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-item {
+    background-color: var(--black);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item img {
+    max-width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-item span {
+    display: block;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+button a{
+    color: #fff;
+}
+
+.product-item button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btnad{
+    font-size: 20px;
+    background: var(--main-color);
+    color: var(--bg);
+    width: 16%;
+    padding: .6rem;
+    border-radius: 10px;
+}
+
+#btnad:hover{
+    background: var(--header-color);
+}
+
+/* Efeitos ao passar o mouse */
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-item:hover button:hover{
+    background-color: var(--header-color);
+}
+
+/* Seção de Edição de Produtos */
+#edit-product-form {
+    background-color: var(--bg);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#edit-product-form label {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+#edit-product-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+
+#edit-product-form button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+#edit-product-form button:hover {
+    background-color: var(--header-color);
+}
+
+#product-image-preview {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+/* Seção de Adição de Produtos */
+#add-product-form {
+    background-color: var(--bg);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#add-product-form label {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+#add-product-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+#add-product-form button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#add-product-form button:hover {
+    background-color: var(--header-color);
+}
+
+#new-product-image-preview {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+/* Estilo do botão de fechar */
+.close-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-btn i {
+    font-size: 1.7rem; /* Aumenta o tamanho do ícone */
+}
+
+.close-btn:hover {
+    color: var(--main-color)
+}

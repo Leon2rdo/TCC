@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Restaurante</title>
+    <link rel="stylesheet" href="ADMS.css">
+</head>
+<body>
+    <header>
+        <a href="../login.html">Voltar</a>
+        <h1>Painel Administrativo</h1>
+    </header>
+
+    <section id="free-menu">
+        <h2>Cardápio Gratuito</h2>
+
+        <!-- Seleção de dia da semana -->
+        <label for="day-select">Selecione o dia:</label>
+        <select id="day-select" onchange="handleDayShiftSelection()">
+            <option value="segunda-feira">Segunda-feira</option>
+            <option value="terça-feira">Terça-feira</option>
+            <option value="quarta-feira">Quarta-feira</option>
+            <option value="quinta-feira">Quinta-feira</option>
+            <option value="sexta-feira">Sexta-feira</option>
+        </select>
+
+        <!-- Seleção de turno -->
+        <label for="shift-select">Selecione o turno:</label>
+        <select id="shift-select" onchange="handleDayShiftSelection()">
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+        </select>
+
+        <div id="free-menu-list"></div>
+        </section>
+        <section>
+        <h3>Pedidos</h3>
+        <table id="order-table">
+            <thead>
+                <tr>
+                    <th>Nº do Pedido</th>
+                    <th>Nome do Aluno</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor Total</th>
+                    <th>Status de Pagamento</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody id="order-table-body">
+                <!-- Os pedidos serão inseridos aqui dinamicamente -->
+            </tbody>
+        </table>
+    </section>
+
+    <a href="ADMP.html" class="btn">Editar Cantina Paga</a>
+
+    <script src="ADMJS.js"></script>
+    
+</body>
+</html>

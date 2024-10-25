@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Paga</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/cant_paga.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="índice.html" class="logo">
+            <img src="imagens/main_logo1.png" alt="Logo da Cantina Paraná">
+        </a>
+        <div class="icons">
+            <div class="índice.html" id="menu-btn"></div>
+        </div>
+
+<!-- Carrinho -->
+<div class="cart-items-container">
+    <div class="cart-close">
+        <span class="fas fa-times" id="close-cart-btn"></span>
+    </div>
+    <div class="cart-items"></div>
+</div>
+
+
+        <!-- Total e botão de confirmar pedido -->
+        <div class="cart-footer">
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="total">Total: R$0.00</div>
+            <button id="confirm-btn" class="confirm-btn">Confirmar Pedido</button>
+        </div>
+    </header>
+
+<!-- Modal personalizado -->
+<div id="modal-confirmacao" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Carrinho</h2>
+        <p id="itens-pedido"></p>
+        <p id="total-pedido"></p>
+        <P> Pagamento apenas por pix, chave: <div id="qrcode"></div></P>
+        
+            <!-- Chave Pix -->
+            <div>
+                <p>Chave Pix: <span id="chave-pix">09311101907</span></p>
+                <button id="copy-pix-btn">Copiar Chave Pix</button>
+            </div>
+        
+            <!-- QR Code -->
+            <div id="qrcode"></div>
+        
+    </div>
+</div>
+
+    <!-- Cardápio -->
+    <section class="products" id="products">
+        <h1 class="heading"> Cantina <span>Paga</span> </h1>
+        <div class="box-container">
+            <!-- Item: Esfiha de frango -->
+            <div class="box">
+                <div class="icons">
+                    <span data-name="Esfiha de frango" data-price="6.00"></span>
+                </div>
+                <div class="image">
+                    <img src="imagens/paga.png" alt="Esfiha de frango">
+                </div>
+                <div class="content">
+                    <h3>Esfiha de frango</h3>
+                    <div class="price">R$6,00</div>
+                </div>
+            </div>
+
+            <!-- Item: Pedaço de bolo -->
+            <div class="box">
+                <div class="icons">
+                    <span data-name="Pedaço de bolo" data-price="2.50"></span>
+                </div>
+                <div class="image">
+                    <img src="imagens/bolo.jpg" alt="Pedaço de bolo">
+                </div>
+                <div class="content">
+                    <h3>Pedaço de bolo</h3>
+                    <div class="price">R$2,50</div>
+                </div>
+            </div>
+
+            <!-- Item: Brigadeiro -->
+            <div class="box">
+                <div class="icons">
+                    <span data-name="Brigadeiro" data-price="3.50"></span>
+                </div>
+                <div class="image">
+                    <img src="imagens/brigadeiro.jpg" alt="Brigadeiro">
+                </div>
+                <div class="content">
+                    <h3>Brigadeiro</h3>
+                    <div class="price">R$3,50</div>
+                </div>
+            </div>
+
+            <!-- Item: Toddynho -->
+            <div class="box">
+                <div class="icons">
+                    <span data-name="Toddynho" data-price="3.00"></span>
+                </div>
+                <div class="image">
+                    <img src="imagens/todinho.jpg" alt="Toddynho">
+                </div>
+                <div class="content">
+                    <h3>Toddynho</h3>
+                    <div class="price">R$3,00</div>
+                </div>
+            </div>
+
+            <!-- Item: Suco -->
+            <div class="box">
+                <div class="icons">
+                    <span data-name="Suco" data-price="4.00"></span>
+                </div>
+                <div class="image">
+                    <img src="imagens/suco.jpg" alt="Suco">
+                </div>
+                <div class="content">
+                    <h3>Suco</h3>
+                    <div class="price">R$4,00</div>
+                </div>
+            </div>
+
+        <!-- Item: Enroladão de calabresa -->
+        <div class="box">
+              <div class="icons">
+                 <span data-name="Enroladão de calabresa" data-price="6.00"></span>
+             </div>
+             <div class="image">
+                 <img src="imagens/enroladão.jpg" alt="Enroladão de calabresa">
+              </div>
+             <div class="content">
+                  <h3>Enroladão de calabresa</h3>
+                  <div class="price">R$6,00</div>
+               </div>
+           </div>
+
+           <!-- Item: Paçoquinha -->
+        <div class="box">
+            <div class="icons">
+               <span data-name="Paçoquinha" data-price="0.99"></span>
+           </div>
+           <div class="image">
+               <img src="imagens/pacoquinha.jpg" alt="Paçoquinha">
+            </div>
+           <div class="content">
+                <h3>Paçoquinha</h3>
+                <div class="price">R$0,99</div>
+             </div>
+         </div>
+
+        <!-- Item: Mini pizza de calabresa -->
+        <div class="box">
+            <div class="icons">
+                <span data-name="Mini pizza de calabresa" data-price="7.00"></span>
+            </div>
+            <div class="image">
+                <img src="imagens/pizzaCalabresa.jpg" alt="Mini pizza de calabresa">
+            </div>
+            <div class="content">
+                <h3>Mini pizza de calabresa</h3>
+                <div class="price">R$7,00</div>
+            </div>
+        </div>
+
+        <!-- Item: Mini pizza de frango -->
+        <div class="box">
+            <div class="icons">
+                <span data-name="Mini pizza de frango" data-price="7.00"></span>
+            </div>
+            <div class="image">
+                <img src="imagens/pizzaFrango.jpg" alt="Mini pizza de frango">
+            </div>
+            <div class="content">
+                <h3>Mini pizza de frango</h3>
+                <div class="price">R$7,00</div>
+            </div>
+        </div>
+
+        <!-- Item: Kibe -->
+        <div class="box">
+            <span data-name="Kibe" data-price="4.50"></span>
+            <div class="image">
+                <img src="imagens/kibe.jpg" alt="Kibe">
+            </div>
+            <div class="content">
+                <h3>Kibe</h3>
+                <div class="price">R$4,50</div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>

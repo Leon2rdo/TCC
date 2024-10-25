@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --main-color: #0099ff; /* Cor principal usada em botões e destaques */
+    --black: #dddddd; /* Cor de fundo padrão para elementos */
+    --bg: #ffffff; /* Cor de fundo da página */
+    --border: .1rem solid rgba(255, 255, 255, .3); /* Estilo da borda para elementos */
+    --header-color: #2258cc; /* Cor do cabeçalho */
+    --text-color: #000000; /* Cor do texto padrão */
+}
+
+/* Estilos Globais */
+* {
+    font-family: 'Roboto', sans-serif; /* Define a fonte para toda a página */
+    margin: 0; padding: 0; /* Remove margens e preenchimentos padrão */
+    box-sizing: border-box; /* Facilita o cálculo de larguras e alturas */
+    outline: none; border: none; /* Remove contornos e bordas padrão */
+    text-decoration: none; /* Remove sublinhados de links */
+    text-transform: capitalize; /* Capitaliza o texto */
+    transition: .2s linear; /* Adiciona transição suave para efeitos */
+}
+
+html {
+    font-size: 62.5%; /* Define o tamanho da fonte base */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    scroll-padding-top: 9rem; /* Espaço superior para rolagem suave */
+    scroll-behavior: smooth; /* Rolagem suave para âncoras */
+}
+
+body {
+    background: var(--bg); /* Define a cor de fundo da página */
+}
+
+section {
+    padding: 2rem 7%; /* Define o preenchimento das seções */
+}
+
+/* Estilos do Título */
+.heading {
+    text-align: center; /* Centraliza o título */
+    color: #292929; /* Cor do texto do título */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    padding-bottom: 3.5rem; /* Espaço abaixo do título */
+    font-size: 4rem; /* Tamanho da fonte do título */
+}
+
+.heading span {
+    color: var(--main-color); /* Cor do destaque dentro do título */
+    text-transform: uppercase; /* Mantém o texto em maiúsculas */
+}
+
+/* Estilos do Botão */
+.btn {
+    margin-top: 1rem; /* Espaço acima do botão */
+    display: inline-block; /* Exibe como bloco em linha */
+    padding: .9rem 3rem; /* Preenchimento do botão */
+    font-size: 1.7rem; /* Tamanho da fonte do botão */
+    color: #fff; /* Cor do texto do botão */
+    background: var(--main-color); /* Cor de fundo do botão */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.btn:hover {
+    letter-spacing: .2rem; /* Aumenta o espaçamento das letras ao passar o mouse */
+}
+
+/* Estilos para Login e Cadastro */
+.contact .row {
+    display: flex; /* Usa flexbox para layout */
+    background: var(--black); /* Cor de fundo da seção de contato */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: 1rem; /* Espaçamento entre os itens */
+}
+
+.contact .row form {
+    flex: 1 1 45rem; /* Permite que o formulário cresça até 45rem */
+    padding: 5rem 2rem; /* Preenchimento do formulário */
+    text-align: center; /* Centraliza o texto do formulário */
+    margin-left: 40vh; /* Margem esquerda para centralização */
+    margin-right: 40vh; /* Margem direita para centralização */
+}
+
+.contact .row form h3 {
+    text-transform: uppercase; /* Transforma o texto do título em maiúsculas */
+    font-size: 3.5rem; /* Tamanho da fonte do título do formulário */
+    color: #fff; /* Cor do título do formulário */
+}
+
+.contact .row form p {
+    font-size: 2rem; /* Tamanho da fonte dos parágrafos */
+    font-weight: lighter; /* Peso da fonte mais leve */
+    line-height: 1.8; /* Altura da linha */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do parágrafo */
+    color: var(--text-color); /* Cor do texto */
+    text-decoration: none; /* Remove sublinhados */
+}
+
+.contact .row form a {
+    text-decoration: none; /* Remove sublinhados dos links */
+    color: var(--main-color); /* Cor do texto dos links */
+}
+
+.contact .row form a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre o link */
+}
+
+.contact .row form .inputBox {
+    display: flex; /* Usa flexbox para os campos de entrada */
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-top: 2rem; /* Espaço acima do campo */
+    margin-bottom: 2rem; /* Espaço abaixo do campo */
+    background: var(--bg); /* Cor de fundo dos campos de entrada */
+    border: var(--border); /* Estilo da borda dos campos de entrada */
+}
+
+.contact .row form .inputBox span {
+    color: #fff; /* Cor do texto do rótulo */
+    font-size: 2rem; /* Tamanho da fonte do rótulo */
+    padding-left: 2rem; /* Espaçamento à esquerda do rótulo */
+}
+
+.contact .row form .inputBox input {
+    width: 100%; /* Largura total do campo de entrada */
+    padding: 2rem; /* Preenchimento do campo de entrada */
+    font-size: 1.7rem; /* Tamanho da fonte do campo de entrada */
+    color: var(--text-color); /* Cor do texto no campo de entrada */
+    text-transform: none; /* Não transforma o texto */
+    background: none; /* Remove a cor de fundo */
+}
+
+.contact .row form .inputBox .date {
+    color: #7e7e7e; /* Cor do texto do campo de data */
+}

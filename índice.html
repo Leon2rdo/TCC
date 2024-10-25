@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Paraná</title>
+
+    <!-- Link para a biblioteca Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Link para o arquivo de estilo CSS personalizado -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="profile-container">
+        <img src="imagens/perfil.png" alt="Imagem de Perfil" class="profile-img">
+    </div>
+
+    <h2>Menu Rápido</h2>
+    <ul>
+        <li><h3>Nome do Aluno</h3></li>
+        <li><a href="#">Editar Perfil</a></li>
+        <li><a href=".">Ver Pedidos</a></li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+    </ul>
+</div>
+
+<!-- Modal de Edição de Perfil -->
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Editar Perfil</h2>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="profileImg">Imagem de Perfil:</label>
+                <img src="imagens/perfil.png" alt="Imagem de Perfil" id="modalProfileImg" class="profile-img-modal">
+                <input type="file" id="profileImgInput" accept="image/*" onchange="loadProfileImage(event)">
+            </div>
+            <div class="form-group">
+                <label for="nomeAluno">Nome do Aluno:</label>
+                <input type="text" id="nomeAluno" value="Nome do Aluno" readonly>
+            </div>
+            <div class="form-group">
+                <label for="emailAluno">Email:</label>
+                <input type="email" id="emailAluno" value="aluno@example.com" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cgmAluno">CGM:</label>
+                <input type="text" id="cgmAluno" value="123456789" readonly>
+            </div>
+            <button type="submit" class="btn">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Ver Pedidos -->
+<div id="ordersModal" class="modal">
+    <div class="modal-content2">
+        <span class="close-orders">&times;</span>
+        <h2>Seus Pedidos</h2>
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Esfiha</td>
+                    <td>2</td>
+                    <td>R$12,00</td>
+                    <td>24/10/2024</td>
+                </tr>
+                <tr>
+                    <td>Pedaço de bolo</td>
+                    <td>1</td>
+                    <td>R$2,50</td>
+                    <td>25/10/2024</td>
+                </tr>
+                <!-- Adicione mais linhas conforme necessário -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Conteúdo Principal -->
+<div class="main-content">
+    <!-- Início do Cabeçalho -->
+    <header class="header">
+        <!-- Logo da Cantina Paraná -->
+        <a href="#" class="logo">
+            <img src="imagens/main_logo1.png" alt="Logo da Cantina Paraná">
+        </a>
+
+        <!-- Navegação do Site -->
+        <nav class="navbar">
+            <b>
+                <a href="CantinaPaga.html">Cantina Paga</a>
+                <a href="#content2">Cantina Pública</a>
+            </b>
+        </nav>
+
+        <!-- Ícone de login com link -->
+        <div class="icons">
+            <div class="fas fa-user" id="user-btn"></div>
+        </div>
+    </header>
+    <!-- Fim do Cabeçalho -->
+
+    <!-- Início da Seção Home -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Cantina Paraná</h3>
+            <b><p>Provendo alimentos de valor</p></b>
+        </div>
+    </section>
+    <!-- Fim da Seção Home -->
+
+    <!-- Início da Seção Cantina Paga -->
+    <section class="cantina-paga" id="cantina-paga">
+        <h1 class="heading"><span>Cantina</span></h1>
+
+        <div class="row cantina-paga-row">
+            <!-- Imagem da Cantina Paga -->
+            <div class="cantina-paga-img">
+                <img src="imagens/paga.png" alt="Imagem Cantina Paga">
+            </div>
+            <!-- Conteúdo com breve descrição e botão -->
+            <div class="content cantina-paga-content">
+                <h3>Cantina Paga</h3>
+                <b><p>Escolha os melhores assados e sobremesas</p></b>
+                <a href="CantinaPaga.html" class="btn">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+    <!-- Fim da Seção Cantina Paga -->
+
+    <!-- Início da Seção Cantina Pública -->
+    <section class="about" id="menu">
+        <div class="row">
+            <div class="content3">
+                <h3>Cantina Pública</h3>
+                <b><p>Veja o calendário completo de pratos</p></b>    
+
+                <!-- Botões para selecionar o período (manhã, tarde ou noite) -->
+                <button class="btn" onclick="showContent('manhã')">Manhã</button>
+                <button class="btn" onclick="showContent('tarde')">Tarde</button>
+                <button class="btn" onclick="showContent('noite')">Noite</button>
+            </div>
+        </div>
+    </section>
+    <!-- Fim da Seção Cantina Pública -->
+
+    <!-- Início da Seção Dinâmica de Conteúdo -->
+    <section class="about" id="menu">
+        <div class="content2" id="content2">
+            <!-- Conteúdo para Manhã -->
+            <div id="manhã" class="content-section active">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Segunda-feira</th>
+                            <th>Terça-feira</th>
+                            <th>Quarta-feira</th>
+                            <th>Quinta-feira</th>
+                            <th>Sexta-feira</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day">Feijoada <br><img src="imagens/FeA.jpg" alt="Feijoada"></td>
+                            <td class="day">Macarronada <br><img src="imagens/macar.jpg" alt="Macarronada"></td>
+                            <td class="day">Strogonoff <br><img src="imagens/strong.jpg" alt="Strogonoff"></td>
+                            <td class="day">Peixe Frito <br><img src="imagens/pf.jpg" alt="Peixe Frito"></td>
+                            <td class="day">Empanados <br><img src="imagens/empanado.png" alt="Empanados"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Conteúdo para Tarde -->
+            <div id="tarde" class="content-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Segunda-feira</th>
+                            <th>Terça-feira</th>
+                            <th>Quarta-feira</th>
+                            <th>Quinta-feira</th>
+                            <th>Sexta-feira</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day">Polenta <br><img src="imagens/polenta.jpg" alt="Polenta"></td>
+                            <td class="day">Mandiocada <br><img src="imagens/mandiocada.jpg" alt="Mandiocada"></td>
+                            <td class="day">Carne Moída <br><img src="imagens/carne_moida.jpg" alt="Carne Moída"></td>
+                            <td class="day">Cachorro Quente <br><img src="imagens/cachorro_quente.jpg" alt="Cachorro Quente"></td>
+                            <td class="day">Salada <br><img src="imagens/salada.jpg" alt="Salada"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Conteúdo para Noite -->
+            <div id="noite" class="content-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Segunda-feira</th>
+                            <th>Terça-feira</th>
+                            <th>Quarta-feira</th>
+                            <th>Quinta-feira</th>
+                            <th>Sexta-feira</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day">Frango Desfiado <br><img src="imagens/frango_desfiado.jpg" alt="Frango Desfiado"></td>
+                            <td class="day">Torta Salgada <br><img src="imagens/torta_salgada.jpg" alt="Torta Salgada"></td>
+                            <td class="day">Sopa <br><img src="imagens/sopa.jpg" alt="Sopa"></td>
+                            <td class="day">Risoto <br><img src="imagens/risoto.jpg" alt="Risoto"></td>
+                            <td class="day">Lasanha <br><img src="imagens/lasanha.jpg" alt="Lasanha"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- Fim da Seção de Conteúdo Dinâmico -->
+
+    <!-- Início do Rodapé -->
+    <section class="footer">
+        <div class="share">
+            <!-- Links para suporte e escola -->
+        </div>
+        <b><div class="credit">CANTINA PARANÁ</b>
+        <p>Colégio Estadual João Manoel Mondrone</p></div>
+    </section>
+    <!-- Fim do Rodapé -->
+</div>
+
+<!-- Script JavaScript -->
+<script>
+// Função para exibir o conteúdo correspondente ao botão clicado (manhã, tarde, noite)
+function showContent(sectionId) {
+    // Seleciona todas as seções de conteúdo
+    const sections = document.querySelectorAll('.content-section');
+    // Remove a classe 'active' de todas as seções
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    // Adiciona a classe 'active' na seção correspondente ao botão clicado
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add('active');
+    } else {
+        console.error('Seção não encontrada: ' + sectionId);
+    }
+}
+
+// Exibe a seção 'manhã' por padrão ao carregar a página
+window.onload = function() {
+    showContent('manhã');
+};
+
+// Função para mostrar/esconder a sidebar quando o ícone de usuário é clicado
+const userBtn = document.getElementById('user-btn');
+const sidebar = document.getElementById('sidebar');
+
+userBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
+});
+
+// Função para fechar a sidebar
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove("active");
+}
+
+// Evento de rolagem
+window.onscroll = function() {
+    closeSidebar();
+};
+
+
+// Abrir o modal de edição de perfil
+const editProfileBtn = document.querySelector('a[href="#"]'); // Botão de "Editar Perfil" da sidebar
+const modal = document.getElementById('profileModal');
+const closeModal = document.querySelector('.modal .close');
+
+// Abrir o modal ao clicar no link "Editar Perfil"
+editProfileBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    modal.style.display = 'flex';
+});
+
+// Fechar o modal ao clicar no 'X'
+closeModal.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+// Fechar o modal se clicar fora da área de conteúdo
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Função para carregar uma nova imagem de perfil ao selecionar no input
+function loadProfileImage(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const modalProfileImg = document.getElementById('modalProfileImg');
+        const sidebarProfileImg = document.querySelector('.profile-img'); // Seleciona a imagem da sidebar
+        modalProfileImg.src = reader.result;
+        sidebarProfileImg.src = reader.result; // Atualiza a imagem na sidebar
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+
+// Submeter o formulário de edição de perfil (aqui você pode adicionar lógica para salvar os dados)
+const profileForm = document.getElementById('profileForm');
+profileForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert("Perfil atualizado com sucesso!");
+    modal.style.display = 'none';
+});
+
+
+// Abrir o modal de pedidos
+const viewOrdersBtn = document.querySelector('a[href="."]'); // Botão "Ver Pedidos" na sidebar
+const ordersModal = document.getElementById('ordersModal');
+const closeOrdersModal = document.querySelector('.modal .close-orders');
+
+// Abrir o modal de pedidos ao clicar no link "Ver Pedidos"
+viewOrdersBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    ordersModal.style.display = 'flex';
+});
+
+// Fechar o modal de pedidos ao clicar no 'X'
+closeOrdersModal.addEventListener('click', function() {
+    ordersModal.style.display = 'none';
+});
+
+// Função para fechar os modais se clicar fora da área de conteúdo
+window.onclick = function(event) {
+    // Verifica se o clique foi fora do modal de perfil
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+    // Verifica se o clique foi fora do modal de pedidos
+    if (event.target === ordersModal) {
+        ordersModal.style.display = 'none';
+    }
+};
+
+// Função para fechar os modais ao rolar a página
+window.onscroll = function() {
+    modal.style.display = 'none'; // Fecha o modal de perfil
+    ordersModal.style.display = 'none'; // Fecha o modal de pedidos
+    closeSidebar(); // Fecha a sidebar se necessário
+};
+
+
+
+
+</script>
+
+</body>
+</html>
